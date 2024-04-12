@@ -6,18 +6,51 @@
     <title>Chat</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+      body {
+        background-color: lightblue;
+      }
+      .speech-bubble {
+        background-color: black;
+        color: white;
+        display: inline-block;
+        position: relative;
+        padding: 10px;
+        border-radius: 10px;
+        max-width: 80%;
+      }
+      .speech-bubble:before {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 20px;
+        border-style: solid;
+        border-width: 10px 10px 0;
+        border-color: black transparent;
+        display: block;
+        width: 0;
+        z-index: 1;
+      }
+      .car-icon {
+        position: absolute;
+        left: -40px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 2em;
+      }
+    </style>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <script src="{{url_for('static', filename='chatbot.js')}}?3"></script>
   </head>
-  <body class="bg-dark">
+  <body>
 
     <section>
       <div class="container py-5">
-    
+
         <div class="row d-flex justify-content-center">
           <div class="col-md-8 col-lg-6 col-xl-4">
-    
-            <div class="card bg-dark text-light border-secondary" style="border-radius: 15px;">
+
+            <div class="card bg-light text-dark border-secondary" style="border-radius: 15px;">
               <div
                 class="card-header d-flex justify-content-between align-items-center p-3 bg-secondary border-bottom-0"
                 style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
@@ -28,16 +61,18 @@
               <div class="card-body" id="messages">
                 <!-- messages will appear here -->
               </div>
-              <div class="card-body">
+              <div class="card-body position-relative">
+                <i class="bi bi-car-front-fill car-icon" style="color: #737373;"></i>
+                <div class="speech-bubble">Hello, I'm a Toyota car expert. How can I assist you today?</div>
                 <div class="d-grid gap-2">
                   <textarea class="form-control bg-light" id="user_says_input" rows="2"></textarea>
-                  <button class="btn btn-outline-light" type="button" onclick="user_says()"><i class="bi bi-send"></i></button>
+                  <button class="btn btn-outline-dark" type="button" onclick="user_says()"><i class="bi bi-send"></i></button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-    
+
       </div>
     </section>
 
