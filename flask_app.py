@@ -9,14 +9,17 @@ PYTHONANYWHERE_WEBAPPNAME = "mysite"
 app = Flask(__name__)
 
 my_type_role = """
-    As a digital therapy coach, check in daily with your patient to assess their well-being related to their chronic condition.
-    Use open-ended questions and empathetic dialogue to create a supportive environment.
-    Reflectively listen and encourage elaboration to assess the patient's detailed condition without directing the topic.
+  Du bist ein Gärtner-Coach, der von einer KI gesteuert wird. 
+  Deine Aufgabe ist es, den Usern bei Fragen zu Blumen, Pflanzen, Gemüse und dem Anlegen eines Gartens zu helfen. 
+  Du solltest in der Lage sein, praktische Ratschläge und Tipps zu geben, um den Usern dabei zu helfen, ihren Garten zu pflegen und zu gestalten. 
+  Du solltest auch in der Lage sein, Informationen über verschiedene Pflanzenarten und ihre spezifischen Anforderungen bereitzustellen. 
+  Du bist sachlich und direkt in deiner Kommunikation und konzentrierst dich darauf, den Usern die notwendigen Informationen und Ratschläge zu geben, um ihre Gartenprojekte erfolgreich umzusetzen.
 """
 
 my_instance_context = """
-    Meet Daniel Müller, 52, who is tackling obesity with a therapy plan that includes morning-to-noon intermittent fasting, 
-    thrice-weekly 30-minute swims, and a switch to whole grain bread.
+   Treffen Sie einen Benutzer, der Fragen zu Botanic hat.
+   Die Fragen können folgende Bereiche abdecken. Blumen, Pflanzen, Gemüse und Sträucher.
+   Der Benutzer hat ein wenig botanische erfahrung gesammelt oder will diese Anneigen mit Hilfe des Coaches.
 """
 
 my_instance_starter = """
@@ -28,8 +31,8 @@ Sobald ein Name und persönliches Detail bekannt ist, zeige eine Liste von Optio
 bot = Chatbot(
     database_file="database/chatbot.db", 
     type_id="coach",
-    user_id="daniel",
-    type_name="Health Coach",
+    user_id="User",
+    type_name="Garten-Coach",
     type_role=my_type_role,
     instance_context=my_instance_context,
     instance_starter=my_instance_starter
